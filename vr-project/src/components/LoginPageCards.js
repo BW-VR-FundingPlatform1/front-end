@@ -26,8 +26,8 @@ export default function LoginPageCards() {
   const classes = useStyles();
 
   return (
-      <div style={{marginLeft: "15%", paddingTop: "6%"}}>
-          <Grid className={classes.flex} container spacing={5} direction="row" display="flex" justify="space-between" alignItems="center">
+      <div style={{marginLeft: "15%", paddingTop: "4%"}}>
+          <Grid className={classes.flex} container spacing={4} direction="row" display="flex" justify="space-between" alignItems="center">
             
               <Grid item xs>
     <Card className={classes.root}>
@@ -39,7 +39,7 @@ export default function LoginPageCards() {
           image="https://images.pexels.com/photos/935756/pexels-photo-935756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
           title="Contemplative Reptile"
         />
-        <CardContent style={{backgroundColor: "#07575B", color: "white"}}>
+        <CardContent style={{backgroundColor: "black", color: "white"}}>
           <Typography gutterBottom variant="h5" component="h2">
             Funding Backer
           </Typography>
@@ -48,7 +48,7 @@ export default function LoginPageCards() {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions style={{backgroundColor: "#07575B", color: "white"}}>
+      <CardActions style={{backgroundColor: "black", color: "white"}}>
         <Button size="small" style={{color: "white"}}>
           Login
         </Button>
@@ -70,20 +70,20 @@ export default function LoginPageCards() {
     image="https://images.pexels.com/photos/1167134/pexels-photo-1167134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     title="Contemplative Reptile"
   />
-  <CardContent>
+  <CardContent style={{backgroundColor: "black", color: "white"}}>
     <Typography gutterBottom variant="h5" component="h2">
       Project Developer
     </Typography>
-    <Typography variant="body2" color="textSecondary" component="p">
+    <Typography variant="body2" style={{color: "lightgray"}} component="p">
       Your vision takes VR to the next level and pushes the industry forward in new and exciting ways with new and innovative ideas.
     </Typography>
   </CardContent>
 </CardActionArea>
-<CardActions>
-  <Button size="small" style={{color: "black"}}>
+<CardActions style={{backgroundColor: "black", color: "white"}}>
+  <Button size="small" style={{color: "white"}}>
     Login
   </Button>
-  <Button size="small" style={{color: "black"}}>
+  <Button size="small" style={{color: "white"}}>
     Signup
   </Button>
 </CardActions>

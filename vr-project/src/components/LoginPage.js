@@ -8,7 +8,9 @@ const LoginPage = () => {
 
     return(
         <div className="loginPage">
+            <div className="loginPage-sub">
             <LoginPageCards />
+            </div>
         </div>
     )
 }
