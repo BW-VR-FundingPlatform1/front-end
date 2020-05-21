@@ -14,6 +14,10 @@ Roboto Font: npm install typeface-roboto --save
 
 Yup: npm install -S yup
 
+Framer Motion: npm install framer-motion
+
+React Spring: npm install react-spring
+
 
 
 Color Scheme:
