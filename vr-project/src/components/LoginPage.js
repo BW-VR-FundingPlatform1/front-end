@@ -9,12 +9,13 @@ const LoginPage = () => {
 
     return(
         <Spring
-        config={{duration: 1000}}
+        config={{duration: 950}}
         from={{ opacity: 0}}
         to={{ opacity: 1}}
         >
           {props=>(
            <div style={props}>
+
         <div className="loginPage">
             <div className="loginPage-sub">
            
