@@ -7,7 +7,7 @@ import LoginPageCards from './LoginPageCards';
 const LoginPage = () => {
 
     return(
-        <div>
+        <div className="loginPage">
             <LoginPageCards />
         </div>
     )

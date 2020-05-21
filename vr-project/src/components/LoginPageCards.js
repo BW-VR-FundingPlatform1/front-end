@@ -11,51 +11,56 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 300,
+    minWidth: 345,
     maxWidth: 345,
     
     flexGrow: 1,
   },
+  flex: {
+    flexGrow: 1,
+    alignItems: "center"
+  }
 });
 
 export default function LoginPageCards() {
   const classes = useStyles();
 
   return (
-      <div>
-          <Grid container  display="flex" justify="space-evenly" align="center">
-              <Grid item xs={3}>
+      <div style={{marginLeft: "15%", paddingTop: "6%"}}>
+          <Grid className={classes.flex} container spacing={5} direction="row" display="flex" justify="space-between" alignItems="center">
+            
+              <Grid item xs>
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
           height="140"
-          image="https://images.pexels.com/photos/7066/man-relax-couch-study.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          image="https://images.pexels.com/photos/935756/pexels-photo-935756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
           title="Contemplative Reptile"
         />
-        <CardContent>
+        <CardContent style={{backgroundColor: "#07575B", color: "white"}}>
           <Typography gutterBottom variant="h5" component="h2">
             Funding Backer
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" style={{color: "lightgray"}} component="p">
             Financial support backing for those with a vision in VR development provides the opportunity to make dreams a virtual reality.
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
+      <CardActions style={{backgroundColor: "#07575B", color: "white"}}>
+        <Button size="small" style={{color: "white"}}>
           Login
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" style={{color: "white"}}>
           Signup
         </Button>
       </CardActions>
     </Card>
     </Grid>
 
-
-<Grid item xs={3}>
+   
+<Grid item xs>
 <Card className={classes.root}>
 <CardActionArea>
   <CardMedia
@@ -75,10 +80,10 @@ export default function LoginPageCards() {
   </CardContent>
 </CardActionArea>
 <CardActions>
-  <Button size="small" color="primary">
+  <Button size="small" style={{color: "black"}}>
     Login
   </Button>
-  <Button size="small" color="primary">
+  <Button size="small" style={{color: "black"}}>
     Signup
   </Button>
 </CardActions>

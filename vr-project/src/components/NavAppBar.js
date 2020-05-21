@@ -27,9 +27,12 @@ export default function NavAppBar() {
     <div className={classes.root}>
       <AppBar position="static" style={{backgroundColor: "#07575B"}}>
         <Toolbar>
+          <Link to="/" style={{textDecoration: "none", color: "white"}}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          
             <MenuIcon />
           </IconButton>
+          </Link>
           <Typography variant="h6" className={classes.title}>
             VR Direct
           </Typography>
