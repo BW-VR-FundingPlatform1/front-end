@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,8 +12,8 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 345,
-    maxWidth: 345,
+    minWidth: 315,
+    maxWidth: 315,
     
     flexGrow: 1,
   },
@@ -49,12 +50,16 @@ export default function LoginPageCards() {
         </CardContent>
       </CardActionArea>
       <CardActions style={{backgroundColor: "black", color: "white"}}>
+        <Link to="/backer">
         <Button size="small" style={{color: "white"}}>
           Login
         </Button>
+        </Link>
+        <Link to="/backer">
         <Button size="small" style={{color: "white"}}>
           Signup
         </Button>
+        </Link>
       </CardActions>
     </Card>
     </Grid>
@@ -80,12 +85,16 @@ export default function LoginPageCards() {
   </CardContent>
 </CardActionArea>
 <CardActions style={{backgroundColor: "black", color: "white"}}>
+<Link to="/developer">
   <Button size="small" style={{color: "white"}}>
     Login
   </Button>
+  </Link>
+  <Link to="/developer">
   <Button size="small" style={{color: "white"}}>
     Signup
   </Button>
+  </Link>
 </CardActions>
 </Card>
 </Grid>

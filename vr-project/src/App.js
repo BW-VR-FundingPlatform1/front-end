@@ -5,6 +5,8 @@ import { Route } from 'react-router-dom';
 import NavAppBar from './components/NavAppBar';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
+import BackerLogin from './components/BackerLogin';
+import DeveloperLogin from './components/DeveloperLogin';
 
 function App() {
   return (
@@ -17,6 +19,14 @@ function App() {
 
       <Route path="/login">
         <LoginPage />
+      </Route>
+
+      <Route path="/backer">
+        <BackerLogin />
+      </Route>
+
+      <Route path="/developer">
+        <DeveloperLogin />
       </Route>
 
     </div>

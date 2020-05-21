@@ -27,6 +27,18 @@ body {
   background-size: cover;
 }
 
-.loginPage-sub {
-  
+.backerLogin-image {
+  background-image: url('https://images.pexels.com/photos/1853542/pexels-photo-1853542.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  height: 92vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.developerLogin-image {
+  background-image: url('https://images.pexels.com/photos/1426620/pexels-photo-1426620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  height: 92vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
