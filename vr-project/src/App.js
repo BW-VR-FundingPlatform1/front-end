@@ -7,6 +7,8 @@ import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
 import BackerLogin from './components/BackerLogin';
 import DeveloperLogin from './components/DeveloperLogin';
+import BackerSignup from './components/BackerSignup'
+import DeveloperSignup from './components/DeveloperSignup';
 
 function App() {
   return (
@@ -21,12 +23,20 @@ function App() {
         <LoginPage />
       </Route>
 
-      <Route path="/backer">
+      <Route path="/backer-login">
         <BackerLogin />
       </Route>
 
-      <Route path="/developer">
+      <Route path="/developer-login">
         <DeveloperLogin />
+      </Route>
+
+      <Route path="/backer-signup">
+        <BackerSignup />
+      </Route>
+
+      <Route path="/developer-signup">
+        <DeveloperSignup />
       </Route>
 
     </div>

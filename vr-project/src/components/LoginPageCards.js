@@ -50,12 +50,12 @@ export default function LoginPageCards() {
         </CardContent>
       </CardActionArea>
       <CardActions style={{backgroundColor: "black", color: "white"}}>
-        <Link to="/backer">
+        <Link to="/backer-login">
         <Button size="small" style={{color: "white"}}>
           Login
         </Button>
         </Link>
-        <Link to="/backer">
+        <Link to="/backer-signup">
         <Button size="small" style={{color: "white"}}>
           Signup
         </Button>
@@ -80,17 +80,17 @@ export default function LoginPageCards() {
       Project Developer
     </Typography>
     <Typography variant="body2" style={{color: "lightgray"}} component="p">
-      Your vision takes VR to the next level and pushes the industry forward in new and exciting ways with new and innovative ideas.
+      Your vision takes VR to the next level and pushes the industry forward in new and exciting ways with fresh and innovative ideas.
     </Typography>
   </CardContent>
 </CardActionArea>
 <CardActions style={{backgroundColor: "black", color: "white"}}>
-<Link to="/developer">
+<Link to="/developer-login">
   <Button size="small" style={{color: "white"}}>
     Login
   </Button>
   </Link>
-  <Link to="/developer">
+  <Link to="/developer-signup">
   <Button size="small" style={{color: "white"}}>
     Signup
   </Button>

@@ -25,7 +25,7 @@ export default function NavAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{backgroundColor: "#07575B"}}>
+      <AppBar position="static" style={{backgroundColor: "black"}}>
         <Toolbar>
           <Link to="/" style={{textDecoration: "none", color: "white"}}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
