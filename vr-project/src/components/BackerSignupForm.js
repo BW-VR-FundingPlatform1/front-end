@@ -36,15 +36,15 @@ export default function BackerSignupForm() {
   const classes = useStyles();
 
   return (
-      <div style={{paddingTop: "4%"}}>
+      <div style={{paddingTop: "2%"}}>
     <Card className={classes.root} style={{opacity: "0.7", marginLeft: "40%", marginRight: "40%"}}>
       <CardContent>
       <Typography variant="h5" component="h2">
           Create Your Account
         </Typography>
         <br />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-        <form className={classes.root} noValidate autoComplete="off">
+        
+        <form className={classes.form} noValidate autoComplete="off">
         <TextField required id="firstname" label="First Name" variant="filled" />
         <TextField required id="lastname" label="Last Name" variant="filled" />
         <TextField required id="email" label="Email" variant="filled" />
@@ -55,7 +55,7 @@ export default function BackerSignupForm() {
         <Button size="small">Submit</Button>
       </CardActions>
     </form>
-        </Typography>
+        
       </CardContent>
       
     </Card>

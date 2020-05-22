@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -6,6 +6,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +38,16 @@ const useStyles = makeStyles((theme) => ({
 export default function BackerLoginForm() {
   const classes = useStyles();
 
+  const [formState, setFormState] = useState({
+    username: "",
+    password: "",
+})
+
+const inputChange = (e) => {
+    setFormState({...formState, [e.target.name]: e.target.value});
+    console.log("Typing stuff", formState)
+}
+
   return (
       <div style={{paddingTop: "4%"}}>
     <Card className={classes.root} style={{opacity: "0.9", marginLeft: "10%"}}>
@@ -43,15 +56,34 @@ export default function BackerLoginForm() {
           Welcome Back!
         </Typography>
         <br />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-        <form className={classes.root} noValidate autoComplete="off">
-      <TextField required id="username" label="Username" variant="filled" />
-      <TextField required id="password" label="Password" variant="filled" type="password" />
+  
+        <form className={classes.form} noValidate autoComplete="off">
+        {/* <FormControl> */}
+         <TextField 
+             required 
+             id="username" 
+             name="username"
+             label="Username" 
+             value={formState.name}
+             onChange={inputChange}
+             variant="filled" />
+      {/* </FormControl> */}
+      {/* <FormControl> */}
+         <TextField 
+            required 
+            id="password" 
+            name="password"
+            label="Password" 
+            value={formState.password}
+            onChange={inputChange}
+            variant="filled" 
+            type="password" />
+      {/* </FormControl> */}
       <CardActions>
         <Button size="small">Submit</Button>
       </CardActions>
     </form>
-        </Typography>
+       
       </CardContent>
       
     </Card>

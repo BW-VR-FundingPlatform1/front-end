@@ -43,15 +43,15 @@ export default function DeveloperLoginForm() {
           Welcome Back!
         </Typography>
         <br />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-        <form className={classes.root} noValidate autoComplete="off">
+      
+        <form className={classes.form} noValidate autoComplete="off">
       <TextField required id="username" label="Username" variant="filled" />
       <TextField required id="password" label="Password" variant="filled" type="password" />
       <CardActions>
         <Button size="small">Submit</Button>
       </CardActions>
     </form>
-        </Typography>
+       
       </CardContent>
       
     </Card>
