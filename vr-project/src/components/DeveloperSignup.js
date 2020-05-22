@@ -1,11 +1,13 @@
 import React from 'react';
 import { Spring } from 'react-spring/renderprops';
 
+import DeveloperSignupForm from './DeveloperSignupForm';
+
 const DeveloperSignup = () => {
     return(
         <div>
             <Spring
-        config={{duration: 440}}
+        config={{duration: 2000}}
         from={{ opacity: 0}}
         to={{ opacity: 1}}
         >
@@ -13,6 +15,7 @@ const DeveloperSignup = () => {
            <div style={props}>
             <div className="developerSignup-image">
                 <div>
+                    <DeveloperSignupForm />
                 </div>
             </div>
             </div>
