@@ -7,6 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import { useHistory } from 'react-router-dom';
+
+import axios from 'axios';
+
 
 
 
@@ -48,6 +52,23 @@ const inputChange = (e) => {
     console.log("Typing stuff", formState)
 }
 
+let history = useHistory();
+
+const submitButton = () => {
+    return history.push("/welcomebacker")
+}
+
+const submitForm = (e) => {
+    e.preventDefault();
+    setFormState({username: "", password: ""})
+    axios
+        .post("https://reqres.in/api/users", formState)
+        .then(response => {console.log("Axios response from Backer Login submit", response)})
+        .catch(err => {console.log("Axios error", err)});
+        submitButton()
+}
+
+
   return (
       <div style={{paddingTop: "4%"}}>
     <Card className={classes.root} style={{opacity: "0.9", marginLeft: "10%"}}>
@@ -80,7 +101,7 @@ const inputChange = (e) => {
             type="password" />
       {/* </FormControl> */}
       <CardActions>
-        <Button size="small">Submit</Button>
+        <Button onClick={submitForm} size="small">Submit</Button>
       </CardActions>
     </form>
        

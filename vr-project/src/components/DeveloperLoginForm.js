@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -6,6 +6,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+import { useHistory } from 'react-router-dom';
+
+import axios from 'axios';
+
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +42,33 @@ const useStyles = makeStyles((theme) => ({
 export default function DeveloperLoginForm() {
   const classes = useStyles();
 
+  const [formState, setFormState] = useState({
+    username: "",
+    password: "",
+})
+
+const inputChange = (e) => {
+    setFormState({...formState, [e.target.name]: e.target.value});
+    console.log("Typing stuff", formState)
+}
+
+let history = useHistory();
+
+const submitButton = () => {
+    return history.push("/welcomedeveloper")
+}
+
+const submitForm = (e) => {
+    e.preventDefault();
+    setFormState({username: "", password: ""})
+    axios
+        .post("https://reqres.in/api/users", formState)
+        .then(response => {console.log("Axios response from Backer Login submit", response)})
+        .catch(err => {console.log("Axios error", err)});
+        submitButton()
+}
+
+
   return (
       <div style={{paddingTop: "4%"}}>
     <Card className={classes.root} style={{opacity: "0.9", marginLeft: "10%"}}>
@@ -43,12 +77,31 @@ export default function DeveloperLoginForm() {
           Welcome Back!
         </Typography>
         <br />
-      
+  
         <form className={classes.form} noValidate autoComplete="off">
-      <TextField required id="username" label="Username" variant="filled" />
-      <TextField required id="password" label="Password" variant="filled" type="password" />
+        {/* <FormControl> */}
+         <TextField 
+             required 
+             id="username" 
+             name="username"
+             label="Username" 
+             value={formState.name}
+             onChange={inputChange}
+             variant="filled" />
+      {/* </FormControl> */}
+      {/* <FormControl> */}
+         <TextField 
+            required 
+            id="password" 
+            name="password"
+            label="Password" 
+            value={formState.password}
+            onChange={inputChange}
+            variant="filled" 
+            type="password" />
+      {/* </FormControl> */}
       <CardActions>
-        <Button size="small">Submit</Button>
+        <Button onClick={submitForm} size="small">Submit</Button>
       </CardActions>
     </form>
        
