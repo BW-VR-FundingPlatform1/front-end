@@ -3,19 +3,19 @@ import { Spring } from 'react-spring/renderprops';
 
 import BackerSignupForm from './BackerSignupForm';
 
-const BackerSignup = () => {
+const BackerSignup = (props) => {
     return(
         <div>
             <Spring
-        config={{duration: 2000}}
+        config={{duration: 1000}}
         from={{ opacity: 0}}
         to={{ opacity: 1}}
         >
-          {props=>(
-           <div style={props}>
+          {springProps=>(
+           <div style={springProps}>
             <div className="backerSignup-image">
                 <div>
-                    <BackerSignupForm />
+                    <BackerSignupForm changeDisplayName={props} />
                 </div>
             </div>
             </div>

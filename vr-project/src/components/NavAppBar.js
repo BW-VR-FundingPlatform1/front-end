@@ -20,8 +20,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavAppBar() {
+export default function NavAppBar(props) {
   const classes = useStyles();
+
+  console.log("Navbar props", props)
 
   return (
     <div className={classes.root}>
@@ -36,8 +38,8 @@ export default function NavAppBar() {
           <Typography variant="h6" className={classes.title}>
             VR Direct
           </Typography>
-          <Link style={{textDecoration: "none", color: "white"}} to="/login">
-          <Button color="inherit">Login</Button>
+          <Link style={{textDecoration: "none", color: "white"}} to={props.displayName.route}>
+          <Button color="inherit">{props.displayName.username}</Button>
           </Link>
         </Toolbar>
       </AppBar>

@@ -28,7 +28,7 @@ body {
 }
 
 .backerLogin-image {
-  background-image: url('https://player.vimeo.com/external/282759939.sd.mp4?s=c15d2721602bb886889bfd20c01f1c344cb5d5e8&profile_id=164&oauth2_token_id=57447761');
+  background-image: url('https://images.pexels.com/photos/3675083/pexels-photo-3675083.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   height: 92vh;
   background-attachment: fixed;
   background-position: center;
@@ -36,7 +36,7 @@ body {
 }
 
 .developerLogin-image {
-  background-image: url('https://player.vimeo.com/external/278144257.sd.mp4?s=26c3dce6f650c1613d68873c4a6d74fc8ce0ec1f&profile_id=164&oauth2_token_id=57447761');
+  background-image: url('https://images.pexels.com/photos/3875821/pexels-photo-3875821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   height: 92vh;
   background-attachment: fixed;
   background-position: center;
@@ -44,7 +44,7 @@ body {
 }
 
 .developerSignup-image {
-  background-image: url('https://player.vimeo.com/external/312895181.sd.mp4?s=2d29fcdbc7b110e80d0cf3c8bee7a75843bb9625&profile_id=164&oauth2_token_id=57447761');
+  background-image: url('https://images.pexels.com/photos/3573603/pexels-photo-3573603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   height: 92vh;
   background-attachment: fixed;
   background-position: center;
@@ -53,7 +53,17 @@ body {
 }
 
 .backerSignup-image {
-  background-image: url('https://player.vimeo.com/external/302482838.sd.mp4?s=23f92bf7e5b555e8275700d9297a7cfb950f5afa&profile_id=164&oauth2_token_id=57447761');
+  background-image: url('https://images.pexels.com/photos/3979186/pexels-photo-3979186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  height: 92vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+}
+
+
+.dashboard-image {
+  background-image: url('https://images.pexels.com/photos/3312664/pexels-photo-3312664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   height: 92vh;
   background-attachment: fixed;
   background-position: center;

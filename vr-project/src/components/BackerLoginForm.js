@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function BackerLoginForm() {
+export default function BackerLoginForm(props) {
   const classes = useStyles();
 
   const [formState, setFormState] = useState({
@@ -55,7 +55,7 @@ const inputChange = (e) => {
 let history = useHistory();
 
 const submitButton = () => {
-    return history.push("/welcomebacker")
+    return history.push("/dashboard")
 }
 
 const submitForm = (e) => {
@@ -63,7 +63,7 @@ const submitForm = (e) => {
     setFormState({username: "", password: ""})
     axios
         .post("https://reqres.in/api/users", formState)
-        .then(response => {console.log("Axios response from Backer Login submit", response)})
+        .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }
