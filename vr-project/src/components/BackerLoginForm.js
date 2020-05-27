@@ -6,13 +6,22 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import FormControl from '@material-ui/core/FormControl'
 
 import { useHistory } from 'react-router-dom';
+import * as yup from 'yup';
 
 import axios from 'axios';
 
 
+const formSchema = yup.object().shape({
+  username: yup.string().required("Username is a required field"),
+  password: yup.string().required("Password is a required field"),
+  
+});
 
+
+// comment
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,10 +56,32 @@ export default function BackerLoginForm(props) {
     password: "",
 })
 
+const [errorState, setErrorState] = useState({
+  username: "",
+  password: "",
+})
+
 const inputChange = (e) => {
+    e.persist();
+    validate(e);
     setFormState({...formState, [e.target.name]: e.target.value});
     console.log("Typing stuff", formState)
 }
+
+const validate = e => {
+  yup.reach(formSchema, e.target.name).validate(e.target.value)
+  .then(valid => {
+      setErrorState({
+          ...errorState, [e.target.name]: ""
+      });
+  })
+  .catch(err => {
+      console.log("errors", err.errors);
+      setErrorState({
+          ...errorState, [e.target.name]: err.errors[0]
+      });
+  });
+};
 
 let history = useHistory();
 
@@ -79,7 +110,7 @@ const submitForm = (e) => {
         <br />
   
         <form className={classes.form} noValidate autoComplete="off">
-        {/* <FormControl> */}
+        <FormControl>
          <TextField 
              required 
              id="username" 
@@ -88,18 +119,22 @@ const submitForm = (e) => {
              value={formState.name}
              onChange={inputChange}
              variant="filled" />
-      {/* </FormControl> */}
-      {/* <FormControl> */}
+             <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.username}</Typography>
+      </FormControl>
+      <FormControl>
          <TextField 
-            required 
+             
             id="password" 
             name="password"
             label="Password" 
             value={formState.password}
             onChange={inputChange}
             variant="filled" 
-            type="password" />
-      {/* </FormControl> */}
+            type="password" 
+            required
+            />
+            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
+      </FormControl>
       <CardActions>
         <Button onClick={submitForm} size="small">Submit</Button>
       </CardActions>
