@@ -8,8 +8,19 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import { useHistory } from 'react-router-dom';
+import * as yup from 'yup';
 
 import axios from 'axios';
+
+const formSchema = yup.object().shape({
+  firstname: yup.string().required("First Name is a required field"),
+  lastname: yup.string().required("Last Name is a required field"),
+  email: yup.string().required("Email is a required field"),
+  phonenumber: yup.string().required("Phone Number is a required field"),
+  username: yup.string().required("Username is a required field"),
+  password: yup.string().required("Password is a required field"),
+  
+});
 
 
 const useStyles = makeStyles((theme) => ({
@@ -48,10 +59,36 @@ export default function DeveloperSignupForm(props) {
         password: "",
     })
 
+    const [errorState, setErrorState] = useState({
+      firstname: "",
+        lastname: "",
+        email: "",
+        phonenumber: "",
+        username: "",
+        password: "",
+    })
+
     const inputChange = (e) => {
+      e.persist();
+    validate(e);
         setFormState({...formState, [e.target.name]: e.target.value});
         console.log("Typing stuff", formState)
     }
+
+    const validate = e => {
+      yup.reach(formSchema, e.target.name).validate(e.target.value)
+      .then(valid => {
+          setErrorState({
+              ...errorState, [e.target.name]: ""
+          });
+      })
+      .catch(err => {
+          console.log("errors", err.errors);
+          setErrorState({
+              ...errorState, [e.target.name]: err.errors[0]
+          });
+      });
+    };
 
     let history = useHistory();
 
@@ -98,6 +135,7 @@ const submitForm = (e) => {
             value={formState.firstname}
             onChange={inputChange} 
             />
+            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.firstname}</Typography>
         <TextField required 
             id="lastname" 
             name="lastname"
@@ -107,6 +145,7 @@ const submitForm = (e) => {
             value={formState.lastname}
             onChange={inputChange} 
             />
+            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.lastname}</Typography>
         <TextField required 
             id="email" 
             name="email"
@@ -116,6 +155,7 @@ const submitForm = (e) => {
             value={formState.email}
             onChange={inputChange} 
             />
+            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.email}</Typography>
         <TextField required 
             id="phonenumber" 
             name="phonenumber"
@@ -124,6 +164,7 @@ const submitForm = (e) => {
             value={formState.phonenumber}
             onChange={inputChange} 
             />
+             <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.phonenumber}</Typography>
          <TextField required 
             id="username" 
             name="username"
@@ -133,6 +174,7 @@ const submitForm = (e) => {
             value={formState.username}
             onChange={inputChange} 
             />
+            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.username}</Typography>
         <TextField required 
             id="password" 
             name="password"
@@ -142,6 +184,7 @@ const submitForm = (e) => {
             value={formState.password}
             onChange={inputChange}
             />
+            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
       <CardActions>
         <Button onClick={submitForm} size="small">Submit</Button>
       </CardActions>
