@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DeveloperLoginForm(props) {
 
-  console.log("DeveloperLoginForm props", props)
 
   const classes = useStyles();
 
@@ -64,7 +63,7 @@ const inputChange = (e) => {
   e.persist();
     validate(e);
     setFormState({...formState, [e.target.name]: e.target.value});
-    console.log("Typing stuff", formState)
+    
 }
 
 const validate = e => {
@@ -85,15 +84,21 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-    return history.push("/developer-dashboard")
+    return setTimeout(()=>{history.push("/dashboard")},1000)
 }
 
 const submitForm = (e) => {
     e.preventDefault();
     setFormState({username: "", password: ""})
     axios
-        .post("https://reqres.in/api/users", formState)
-        .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
+        .post("http://localhost:4900/api/entrepreneur/login", formState)
+        // .post("https://vr-direct.herokuapp.com/api/entrepreneur/login", formState)
+        .then(response => {
+          console.log("Axios response from Backer Login submit", response); 
+          localStorage.setItem("token", response.data.token)
+          props.changeDisplayName.changeDisplayName(response.data.username)
+        })
+
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }
