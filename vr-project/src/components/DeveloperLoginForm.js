@@ -6,10 +6,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
-
 import axios from 'axios';
 
 const formSchema = yup.object().shape({
@@ -84,19 +82,19 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-    return setTimeout(()=>{history.push("/dashboard")},1000)
+    return setTimeout(()=>{history.push("/developer-dashboard")},1000)
 }
 
 const submitForm = (e) => {
     e.preventDefault();
     setFormState({username: "", password: ""})
     axios
-        .post("http://localhost:4900/api/entrepreneur/login", formState)
-        // .post("https://vr-direct.herokuapp.com/api/entrepreneur/login", formState)
+        // .post("http://localhost:4900/api/entrepreneur/login", formState)
+        .post("https://vr-direct.herokuapp.com/api/entrepreneur/login", formState)
         .then(response => {
           console.log("Axios response from Backer Login submit", response); 
           localStorage.setItem("token", response.data.token)
-          props.changeDisplayName.changeDisplayName(response.data.username)
+          props.DeveloperDisplayName.DeveloperDisplayName(response.data.username)
         })
 
         .catch(err => {console.log("Axios error", err)});
@@ -113,9 +111,10 @@ const submitForm = (e) => {
         </Typography>
         <br />
   
-        <form className={classes.form} noValidate autoComplete="off">
+        <form onSubmit={submitForm} className={classes.form} autoComplete="off">
         {/* <FormControl> */}
          <TextField 
+             autoFocus
              required 
              id="username" 
              name="username"
@@ -138,7 +137,7 @@ const submitForm = (e) => {
              <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
       {/* </FormControl> */}
       <CardActions>
-        <Button onClick={submitForm} size="small">Submit</Button>
+        <Button type="submit" size="small">Submit</Button>
       </CardActions>
     </form>
        

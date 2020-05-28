@@ -49,32 +49,17 @@ const dashboardData = [
         company: "ClassicVR",
         style: "Be on stage with Miles Davis in VR!",
         funding: "$78 to go!",
-
-    },
-    {
-        img: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "NoLIMITs",
-        style: "Meditate with tons of confusing lines of code.",
-        funding: "$12,593 to go!",
-
-    },
-    {
-        img: "https://images.pexels.com/photos/4009621/pexels-photo-4009621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "CodeCorp",
-        style: "Cheap Date Night Simulator.",
-        funding: "$32,155 to go!",
-
     },
 ]
 
-export default function DashboardCards() {
+export default function BackerDashboardCards() {
   const classes = useStyles();
 
   return (
       <div style={{margin: "6%", marginTop: "1%"}} >
           
           <div className={classes.flex}>
-          <h2 style={{color: "white", marginBottom: "4%", marginLeft: "auto"}}>Latest VR Direct Projects</h2>
+          <h2 style={{color: "white", marginBottom: "4%", marginLeft: "auto"}}>Your Funded Projects</h2>
     <Grid container spacing={6} direction="row" display="flex" justify="space-between" align="center">
           {dashboardData.map(comp => {
               return(

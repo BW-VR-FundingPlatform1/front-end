@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import DetailsIcon from '@material-ui/icons/Details';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +51,12 @@ export default function NavAppBar(props) {
             <DetailsIcon />
          
           </IconButton>
+          <Link to="/public-projects" style={{textDecoration: "none", color: "white"}}>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           
+            <AttachMoneyIcon />
+          </IconButton>
+          </Link>
          
           
           <Typography variant="h6" className={classes.title}>

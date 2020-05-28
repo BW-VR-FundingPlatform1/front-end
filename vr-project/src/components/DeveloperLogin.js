@@ -5,12 +5,11 @@ import DeveloperLoginForm from './DeveloperLoginForm';
 
 const DeveloperLogin = (props) => {
 
-    console.log("DeveloperLogin props", props)
 
     return(
         <div>
             <Spring
-        config={{duration: 1000}}
+        config={{duration: 650}}
         from={{ opacity: 0}}
         to={{ opacity: 1}}
         >
@@ -18,7 +17,7 @@ const DeveloperLogin = (props) => {
            <div style={springProps}>
             <div className="developerLogin-image">
                 <div>
-                    <DeveloperLoginForm changeDisplayName={props} />
+                    <DeveloperLoginForm DeveloperDisplayName={props} />
                 </div>
             </div>
             </div>

@@ -7,21 +7,15 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl'
-
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
-
 import axios from 'axios';
 
 
 const formSchema = yup.object().shape({
   username: yup.string().required("Username is a required field"),
   password: yup.string().required("Password is a required field"),
-  
 });
-
-
-// comment
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '25ch',
     }},
-
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -47,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 12,
   },
 }))
+
 
 export default function BackerLoginForm(props) {
   const classes = useStyles();
@@ -65,7 +59,6 @@ const inputChange = (e) => {
     e.persist();
     validate(e);
     setFormState({...formState, [e.target.name]: e.target.value});
-    console.log("Typing stuff", formState)
 }
 
 const validate = e => {
@@ -93,58 +86,57 @@ const submitForm = (e) => {
     e.preventDefault();
     setFormState({username: "", password: ""})
     axios
-        .post("https://localhost:4900/api/backer/login", formState)
+        // .post("https://localhost:4900/api/backer/login", formState)
         .post("https://vr-direct.herokuapp.com/api/backer/login", formState)
-        .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
+        .then(response => {console.log("Axios response from Backer Login submit", response); props.BackerDisplayName.BackerDisplayName(response.data)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }
 
-
   return (
       <div style={{paddingTop: "4%"}}>
-    <Card className={classes.root} style={{opacity: "0.9", marginLeft: "10%"}}>
-      <CardContent>
-      <Typography variant="h5" component="h2">
-          Welcome Back!
-        </Typography>
-        <br />
-  
-        <form className={classes.form} noValidate autoComplete="off">
-        <FormControl>
-         <TextField 
-             required 
-             id="username" 
-             name="username"
-             label="Username" 
-             value={formState.name}
-             onChange={inputChange}
-             variant="filled" />
-             <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.username}</Typography>
-      </FormControl>
-      <FormControl>
-         <TextField 
-             
-            id="password" 
-            name="password"
-            label="Password" 
-            value={formState.password}
-            onChange={inputChange}
-            variant="filled" 
-            type="password" 
-            required
-            />
-            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
-      </FormControl>
-      <CardActions>
-        <Button onClick={submitForm} size="small">Submit</Button>
-      </CardActions>
-    </form>
-       
+        <Card className={classes.root} style={{opacity: "0.9", marginLeft: "10%"}}>
+           <CardContent>
+              <Typography variant="h5" component="h2">
+               Welcome Back!
+              </Typography>
+              <br />
+           <form onSubmit={submitForm} className={classes.form} autoComplete="off">
+              <FormControl required>
+                 <TextField 
+                 autoFocus
+                 required={true} 
+                 id="username" 
+                 name="username"
+                 label="Username" 
+                 value={formState.name}
+                 onChange={inputChange}
+                 variant="filled" 
+                 isRequired="true"
+                 />
+                 <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.username}</Typography>
+              </FormControl>
+              <FormControl required>
+                 <TextField 
+                 id="password" 
+                 name="password"
+                 label="Password" 
+                 value={formState.password}
+                 onChange={inputChange}
+                 variant="filled" 
+                 type="password" 
+                 required={true}
+                 isRequired="true"
+                 />
+                 <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
+               </FormControl>
+             <CardActions>
+           <Button type="submit" size="small">Submit</Button>
+          </CardActions>
+        </form>
       </CardContent>
-      
-    </Card>
+     </Card>
     </div>
-  );
+ );
 }
 
