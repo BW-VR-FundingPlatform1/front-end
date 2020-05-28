@@ -13,10 +13,10 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 const formSchema = yup.object().shape({
-  firstname: yup.string().required("First Name is a required field"),
-  lastname: yup.string().required("Last Name is a required field"),
+  FirstName: yup.string().required("First Name is a required field"),
+  LastName: yup.string().required("Last Name is a required field"),
   email: yup.string().required("Email is a required field"),
-  phonenumber: yup.string().required("Phone Number is a required field"),
+  phone: yup.string().required("Phone Number is a required field"),
   username: yup.string().required("Username is a required field"),
   password: yup.string().required("Password is a required field"),
   
@@ -51,19 +51,19 @@ export default function DeveloperSignupForm(props) {
   
   
     const [formState, setFormState] = useState({
-        firstname: "",
-        lastname: "",
+        FirstName: "",
+        LastName: "",
         email: "",
-        phonenumber: "",
+        phone: "",
         username: "",
         password: "",
     })
 
     const [errorState, setErrorState] = useState({
-      firstname: "",
-        lastname: "",
+      FirstName: "",
+        LastName: "",
         email: "",
-        phonenumber: "",
+        phone: "",
         username: "",
         password: "",
     })
@@ -98,10 +98,10 @@ const submitButton = () => {
 
 const submitForm = (e) => {
     e.preventDefault();
-    setFormState({firstname: "",
-    lastname: "",
+    setFormState({FirstName: "",
+    LastName: "",
     email: "",
-    phonenumber: "",
+    phone: "",
     username: "",
     password: "",})
     axios
@@ -127,25 +127,25 @@ const submitForm = (e) => {
         
         <form className={classes.form} noValidate autoComplete="off">
         <TextField required 
-            id="firstname" 
-            name="firstname"
+            id="FirstName" 
+            name="FirstName"
             label="First Name" 
             variant="filled"
             type="text"
-            value={formState.firstname}
+            value={formState.FirstName}
             onChange={inputChange} 
             />
-            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.firstname}</Typography>
+            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.FirstName}</Typography>
         <TextField required 
-            id="lastname" 
-            name="lastname"
+            id="LastName" 
+            name="LastName"
             label="Last Name" 
             variant="filled"
             type="text"
-            value={formState.lastname}
+            value={formState.LastName}
             onChange={inputChange} 
             />
-            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.lastname}</Typography>
+            <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.LastName}</Typography>
         <TextField required 
             id="email" 
             name="email"
@@ -157,14 +157,14 @@ const submitForm = (e) => {
             />
             <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.email}</Typography>
         <TextField required 
-            id="phonenumber" 
-            name="phonenumber"
+            id="phone" 
+            name="phone"
             label="Phone Number" 
             variant="filled" 
-            value={formState.phonenumber}
+            value={formState.phone}
             onChange={inputChange} 
             />
-             <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.phonenumber}</Typography>
+             <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.phone}</Typography>
          <TextField required 
             id="username" 
             name="username"
