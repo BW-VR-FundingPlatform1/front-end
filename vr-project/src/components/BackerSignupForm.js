@@ -119,7 +119,7 @@ export default function BackerSignupForm(props) {
            Create Your Account
            </Typography>
            <br />
-        <form className={classes.form} noValidate autoComplete="off">
+        <form onSubmit={submitForm} className={classes.form} autoComplete="off">
          <TextField required 
             id="FirstName" 
             name="FirstName"
@@ -180,7 +180,7 @@ export default function BackerSignupForm(props) {
             />
             <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
       <CardActions>
-        <Button onClick={submitForm} size="small">Submit</Button>
+        <Button type="submit" size="small">Submit</Button>
       </CardActions>
     </form>
   </CardContent> 

@@ -113,7 +113,7 @@ const submitForm = (e) => {
         </Typography>
         <br />
   
-        <form className={classes.form} noValidate autoComplete="off">
+        <form onSubmit={submitForm} className={classes.form} autoComplete="off">
         {/* <FormControl> */}
          <TextField 
              required 
@@ -138,7 +138,7 @@ const submitForm = (e) => {
              <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
       {/* </FormControl> */}
       <CardActions>
-        <Button onClick={submitForm} size="small">Submit</Button>
+        <Button type="submit" size="small">Submit</Button>
       </CardActions>
     </form>
        

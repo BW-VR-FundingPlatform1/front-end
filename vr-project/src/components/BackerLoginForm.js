@@ -101,20 +101,21 @@ const submitForm = (e) => {
                Welcome Back!
               </Typography>
               <br />
-           <form className={classes.form} noValidate autoComplete="off">
-              <FormControl>
+           <form onSubmit={submitForm} className={classes.form} autoComplete="off">
+              <FormControl required>
                  <TextField 
-                 required 
+                 required={true} 
                  id="username" 
                  name="username"
                  label="Username" 
                  value={formState.name}
                  onChange={inputChange}
                  variant="filled" 
+                 isRequired="true"
                  />
                  <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.username}</Typography>
               </FormControl>
-              <FormControl>
+              <FormControl required>
                  <TextField 
                  id="password" 
                  name="password"
@@ -123,12 +124,13 @@ const submitForm = (e) => {
                  onChange={inputChange}
                  variant="filled" 
                  type="password" 
-                 required
+                 required={true}
+                 isRequired="true"
                  />
                  <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
                </FormControl>
              <CardActions>
-           <Button onClick={submitForm} size="small">Submit</Button>
+           <Button type="submit" size="small">Submit</Button>
           </CardActions>
         </form>
       </CardContent>
