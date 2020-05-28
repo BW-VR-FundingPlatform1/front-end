@@ -56,7 +56,7 @@ export default function DeveloperSignupForm(props) {
     let history = useHistory();
 
 const submitButton = () => {
-    return history.push("/dashboard")
+    return history.push("/developer-login")
 }
 
 const submitForm = (e) => {
