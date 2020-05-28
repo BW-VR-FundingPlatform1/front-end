@@ -12,10 +12,11 @@ import DashboardCards from './DashboardCards';
 
 
 const Dashboard = (props) => {
-
+console.log(props)
 let history = useHistory();
 
 const signoutButton = () => {
+    localStorage.removeItem("token")
     return history.push("/");
     
 }

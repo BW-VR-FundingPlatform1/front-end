@@ -40,10 +40,10 @@ export default function DeveloperSignupForm(props) {
   
   
     const [formState, setFormState] = useState({
-        firstname: "",
-        lastname: "",
+        FirstName: "",
+        LastName: "",
         email: "",
-        phonenumber: "",
+        phone: "",
         username: "",
         password: "",
     })
@@ -56,19 +56,20 @@ export default function DeveloperSignupForm(props) {
     let history = useHistory();
 
 const submitButton = () => {
-    return history.push("/dashboard")
+    return history.push("/developer-login")
 }
 
 const submitForm = (e) => {
     e.preventDefault();
     setFormState({firstname: "",
-    lastname: "",
+    LastName: "",
     email: "",
-    phonenumber: "",
+    phone: "",
     username: "",
     password: "",})
     axios
-        .post("https://reqres.in/api/users", formState)
+        .post("http://localhost:4900/api/entrepreneur/register", formState)
+        // .post("https://vr-direct.herokuapp.com/api/entrepreneur/register", formState)
         .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
@@ -91,7 +92,7 @@ const submitForm = (e) => {
         <form className={classes.form} noValidate autoComplete="off">
         <TextField required 
             id="firstname" 
-            name="firstname"
+            name="FirstName"
             label="First Name" 
             variant="filled"
             type="text"
@@ -100,7 +101,7 @@ const submitForm = (e) => {
             />
         <TextField required 
             id="lastname" 
-            name="lastname"
+            name="LastName"
             label="Last Name" 
             variant="filled"
             type="text"
@@ -117,8 +118,8 @@ const submitForm = (e) => {
             onChange={inputChange} 
             />
         <TextField required 
-            id="phonenumber" 
-            name="phonenumber"
+            id="phone" 
+            name="phone"
             label="Phone Number" 
             variant="filled" 
             value={formState.phonenumber}

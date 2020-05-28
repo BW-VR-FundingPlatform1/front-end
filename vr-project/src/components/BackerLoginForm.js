@@ -93,7 +93,8 @@ const submitForm = (e) => {
     e.preventDefault();
     setFormState({username: "", password: ""})
     axios
-        .post("https://reqres.in/api/users", formState)
+        .post("https://localhost:4900/api/backer/login", formState)
+        .post("https://vr-direct.herokuapp.com/api/backer/login", formState)
         .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
