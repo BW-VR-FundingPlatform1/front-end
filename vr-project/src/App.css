@@ -11,11 +11,20 @@ body {
   background-size: cover;
 }
 
-.homePage-quote {
+/* .homePage-quote {
   width: 20%;
   margin-top: 0;
   padding-top: 10%;
   padding-left: 3%;
+} */
+
+.public-projects-image {
+  background-image: url('https://images.pexels.com/photos/1295138/pexels-photo-1295138.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
 }
 
 .loginPage {
@@ -45,7 +54,7 @@ body {
 
 .developerSignup-image {
   background-image: url('https://images.pexels.com/photos/3573603/pexels-photo-3573603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  height: 92vh;
+  height: 100%;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -54,7 +63,7 @@ body {
 
 .backerSignup-image {
   background-image: url('https://images.pexels.com/photos/3979186/pexels-photo-3979186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  height: 92vh;
+  height: 100%;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -64,7 +73,7 @@ body {
 
 .backer-dashboard-image {
   background-image: url('https://images.pexels.com/photos/3312664/pexels-photo-3312664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  height: 92vh;
+  height: 100%;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -72,8 +81,8 @@ body {
 }
 
 .developer-dashboard-image {
-  background-image: url('https://images.pexels.com/photos/3324591/pexels-photo-3324591.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  height: 92vh;
+  background-image: url('https://images.pexels.com/photos/6992/forest-trees-northwestisbest-exploress.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  height: 100%;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;

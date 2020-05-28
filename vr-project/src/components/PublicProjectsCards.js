@@ -67,14 +67,14 @@ const dashboardData = [
     },
 ]
 
-export default function DashboardCards() {
+export default function PublicProjectsCards() {
   const classes = useStyles();
 
   return (
       <div style={{margin: "6%", marginTop: "1%"}} >
           
           <div className={classes.flex}>
-          <h2 style={{color: "white", marginBottom: "4%", marginLeft: "auto"}}>Latest VR Direct Projects</h2>
+          <h2 style={{color: "white", marginBottom: "4%", marginLeft: "auto"}}>Checkout These Latest Projects From Developers!</h2>
     <Grid container spacing={6} direction="row" display="flex" justify="space-between" align="center">
           {dashboardData.map(comp => {
               return(

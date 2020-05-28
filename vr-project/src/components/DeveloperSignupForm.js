@@ -72,7 +72,7 @@ export default function DeveloperSignupForm(props) {
       e.persist();
     validate(e);
         setFormState({...formState, [e.target.name]: e.target.value});
-        console.log("Typing stuff", formState)
+    
     }
 
     const validate = e => {
@@ -105,9 +105,9 @@ const submitForm = (e) => {
     username: "",
     password: "",})
     axios
-        .post("http://localhost:4900/api/entrepreneur/register", formState)
-        // .post("https://vr-direct.herokuapp.com/api/entrepreneur/register", formState)
-        .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
+        // .post("http://localhost:4900/api/entrepreneur/register", formState)
+        .post("https://vr-direct.herokuapp.com/api/entrepreneur/register", formState)
+        .then(response => {console.log("Axios response from Backer Login submit", response)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }
