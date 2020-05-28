@@ -49,7 +49,6 @@ const dashboardData = [
         company: "ClassicVR",
         style: "Be on stage with Miles Davis in VR!",
         funding: "$78 to go!",
-
     },
 ]
 

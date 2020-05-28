@@ -104,6 +104,7 @@ const submitForm = (e) => {
            <form onSubmit={submitForm} className={classes.form} autoComplete="off">
               <FormControl required>
                  <TextField 
+                 autoFocus
                  required={true} 
                  id="username" 
                  name="username"

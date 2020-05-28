@@ -127,7 +127,9 @@ const submitForm = (e) => {
         <br />
         
         <form onSubmit={submitForm} className={classes.form} autoComplete="off">
-        <TextField required 
+        <TextField 
+            autoFocus
+            required 
             id="FirstName" 
             name="FirstName"
             label="First Name" 

@@ -121,6 +121,7 @@ export default function BackerSignupForm(props) {
            <br />
         <form onSubmit={submitForm} className={classes.form} autoComplete="off">
          <TextField required 
+            autoFocus
             id="FirstName" 
             name="FirstName"
             label="First Name" 
@@ -153,6 +154,7 @@ export default function BackerSignupForm(props) {
          <TextField required 
             id="phone" 
             name="phone"
+            type="tel"
             label="Phone Number" 
             variant="filled" 
             value={formState.phone}
