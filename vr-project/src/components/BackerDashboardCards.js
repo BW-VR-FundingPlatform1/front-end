@@ -51,20 +51,6 @@ const dashboardData = [
         funding: "$78 to go!",
 
     },
-    {
-        img: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "NoLIMITs",
-        style: "Meditate with tons of confusing lines of code.",
-        funding: "$12,593 to go!",
-
-    },
-    {
-        img: "https://images.pexels.com/photos/4009621/pexels-photo-4009621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "CodeCorp",
-        style: "Cheap Date Night Simulator.",
-        funding: "$32,155 to go!",
-
-    },
 ]
 
 export default function BackerDashboardCards() {

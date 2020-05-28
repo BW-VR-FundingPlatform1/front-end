@@ -82,7 +82,7 @@ body {
 
 .developer-dashboard-image {
   background-image: url('https://images.pexels.com/photos/6992/forest-trees-northwestisbest-exploress.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  height: 100%;
+  height: 92vh;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;

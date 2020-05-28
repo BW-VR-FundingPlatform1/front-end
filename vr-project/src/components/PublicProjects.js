@@ -1,15 +1,9 @@
 import React from 'react'
 import { Spring } from 'react-spring/renderprops';
-import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import PublicProjectsCards from './PublicProjectsCards';
 
 const PublicProjects = (props) => {
-let history = useHistory();
-
-const signoutButton = () => {
-    return history.push("/");
-}
 
     return(
         <div>

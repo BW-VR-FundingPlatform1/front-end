@@ -23,48 +23,62 @@ const useStyles = makeStyles({
 });
 
 const dashboardData = [
-    {
-        img: "https://images.pexels.com/photos/3175983/pexels-photo-3175983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "RiseTECH",
-        style: "Grocery store simulator.",
-        funding: "$8,874 to go!",
+    // {
+    //     img: "https://images.pexels.com/photos/3175983/pexels-photo-3175983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    //     company: "RiseTECH",
+    //     style: "Grocery store simulator.",
+    //     funding: "$8,874 to go!",
 
-    },
-    {
-        img: "https://images.pexels.com/photos/3405456/pexels-photo-3405456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "FaceScreen Corp.",
-        style: "'Clean your room' game.",
-        funding: "$2,331 to go!",
+    // },
+    // {
+    //     img: "https://images.pexels.com/photos/3405456/pexels-photo-3405456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    //     company: "FaceScreen Corp.",
+    //     style: "'Clean your room' game.",
+    //     funding: "$2,331 to go!",
 
-    },
+    // },
     {
-        img: "https://images.pexels.com/photos/1261815/pexels-photo-1261815.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "UpIT",
-        style: "Fire your own boss simulation.",
-        funding: "Funding Met!",
+      img: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      company: "Jungle George",
+      style: "Meditate with tons of confusing lines of code.",
+      funding: "$12,593 to go!",
 
-    },
-    {
-        img: "https://images.pexels.com/photos/3831136/pexels-photo-3831136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "ClassicVR",
-        style: "Be on stage with Miles Davis in VR!",
-        funding: "$78 to go!",
+  },
+  {
+      img: "https://images.pexels.com/photos/4009621/pexels-photo-4009621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      company: "Jungle George",
+      style: "Cheap Date Night Simulator.",
+      funding: "$32,155 to go!",
 
-    },
-    {
-        img: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "NoLIMITs",
-        style: "Meditate with tons of confusing lines of code.",
-        funding: "$12,593 to go!",
+  },
+    // {
+    //     img: "https://images.pexels.com/photos/1261815/pexels-photo-1261815.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    //     company: "UpIT",
+    //     style: "Fire your own boss simulation.",
+    //     funding: "Funding Met!",
 
-    },
-    {
-        img: "https://images.pexels.com/photos/4009621/pexels-photo-4009621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        company: "CodeCorp",
-        style: "Cheap Date Night Simulator.",
-        funding: "$32,155 to go!",
+    // },
+    // {
+    //     img: "https://images.pexels.com/photos/3831136/pexels-photo-3831136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    //     company: "ClassicVR",
+    //     style: "Be on stage with Miles Davis in VR!",
+    //     funding: "$78 to go!",
 
-    },
+    // },
+    // {
+    //     img: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    //     company: "NoLIMITs",
+    //     style: "Meditate with tons of confusing lines of code.",
+    //     funding: "$12,593 to go!",
+
+    // },
+    // {
+    //     img: "https://images.pexels.com/photos/4009621/pexels-photo-4009621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    //     company: "CodeCorp",
+    //     style: "Cheap Date Night Simulator.",
+    //     funding: "$32,155 to go!",
+
+    // },
 ]
 
 export default function DeveloperDashboardCards() {
