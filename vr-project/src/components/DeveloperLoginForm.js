@@ -85,7 +85,7 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-    return history.push("/dashboard")
+    return history.push("/developer-dashboard")
 }
 
 const submitForm = (e) => {
