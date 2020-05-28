@@ -11,6 +11,8 @@ import BackerSignup from './components/BackerSignup'
 import DeveloperSignup from './components/DeveloperSignup';
 import Dashboard from './components/Dashboard';
 import PrivateRoute from './utils/privateRoute';
+import BackerDashboard from './components/BackerDashboard';
+import DeveloperDashboard from './components/DeveloperDashboard';
 
 
 function App() {
@@ -40,7 +42,7 @@ function App() {
   return (
     <div>
       <NavAppBar displayName={displayName} />
-      
+    
       <Route exact path="/">
         <HomePage />
       </Route>
@@ -67,6 +69,13 @@ function App() {
 
       <PrivateRoute path="/dashboard" component={Dashboard} resetDisplayName={resetDisplayName} />
       
+      <Route path="/backer-dashboard">
+        <BackerDashboard resetDisplayName={resetDisplayName} />
+      </Route>
+
+      <Route path="/developer-dashboard">
+        <DeveloperDashboard resetDisplayName={resetDisplayName} />
+      </Route>
 
     </div>
   );
