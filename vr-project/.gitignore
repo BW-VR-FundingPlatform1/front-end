@@ -24,4 +24,4 @@ yarn-error.log*
 
 .now
 .vercel.json/
-.vscode/
+./vscode/
