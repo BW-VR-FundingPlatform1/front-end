@@ -1,9 +1,0 @@
-  
-{
-    "version": 2,
-    "name": "vr-project",
-    "builds": [{ "src": "vr-project/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
-    "routes": [
-        { "src": "/(.*)", "dest": "client/$1" }
-    ]
-}
