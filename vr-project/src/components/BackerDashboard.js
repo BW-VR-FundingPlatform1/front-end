@@ -11,7 +11,7 @@ import DashboardCards from './DashboardCards';
 
 
 
-const Dashboard = (props) => {
+const BackerDashboard = (props) => {
 
 let history = useHistory();
 
@@ -31,7 +31,7 @@ const signoutButton = () => {
         >
           {springProps=>(
            <div style={springProps}>
-               <div className="dashboard-image">
+               <div className="backer-dashboard-image">
             <Grid container display="flex" justify="flex-end">
             <Button onClick={() => {props.resetDisplayName(); signoutButton()}} style={{paddingRight: "2%"}}>Sign Out</Button>
             </Grid>
@@ -48,4 +48,4 @@ const signoutButton = () => {
 }
 
 
-export default Dashboard;
+export default BackerDashboard;

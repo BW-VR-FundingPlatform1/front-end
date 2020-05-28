@@ -86,7 +86,7 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-    return history.push("/dashboard")
+    return history.push("/backer-dashboard")
 }
 
 const submitForm = (e) => {

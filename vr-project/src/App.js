@@ -9,7 +9,8 @@ import BackerLogin from './components/BackerLogin';
 import DeveloperLogin from './components/DeveloperLogin';
 import BackerSignup from './components/BackerSignup'
 import DeveloperSignup from './components/DeveloperSignup';
-import Dashboard from './components/Dashboard';
+import BackerDashboard from './components/BackerDashboard';
+import DeveloperDashboard from './components/DeveloperDashboard';
 
 
 function App() {
@@ -64,8 +65,12 @@ function App() {
         <DeveloperSignup changeDisplayName={changeDisplayName} />
       </Route>
 
-      <Route path="/dashboard">
-        <Dashboard resetDisplayName={resetDisplayName} />
+      <Route path="/backer-dashboard">
+        <BackerDashboard resetDisplayName={resetDisplayName} />
+      </Route>
+
+      <Route path="/developer-dashboard">
+        <DeveloperDashboard resetDisplayName={resetDisplayName} />
       </Route>
 
     </div>

@@ -62,8 +62,17 @@ body {
 }
 
 
-.dashboard-image {
+.backer-dashboard-image {
   background-image: url('https://images.pexels.com/photos/3312664/pexels-photo-3312664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  height: 92vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.developer-dashboard-image {
+  background-image: url('https://images.pexels.com/photos/3324591/pexels-photo-3324591.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   height: 92vh;
   background-attachment: fixed;
   background-position: center;
