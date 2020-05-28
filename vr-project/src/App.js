@@ -9,7 +9,8 @@ import BackerLogin from './components/BackerLogin';
 import DeveloperLogin from './components/DeveloperLogin';
 import BackerSignup from './components/BackerSignup'
 import DeveloperSignup from './components/DeveloperSignup';
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard';
+
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
   return (
     <div>
       <NavAppBar displayName={displayName} />
-      
+    
       <Route exact path="/">
       <HomePage />
       </Route>
