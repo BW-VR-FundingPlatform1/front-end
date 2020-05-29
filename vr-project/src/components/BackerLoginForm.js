@@ -80,7 +80,7 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-    return 
+  return history.push("/backer-dashboard")
 }
 
 const submitForm = (e) => {
@@ -92,7 +92,7 @@ const submitForm = (e) => {
         .post("https://vr-direct.herokuapp.com/api/backer/login", formState)
         .then(response => {
           const decoded = jwt.decode(response.data.token)
-          // console.log("Axios response from Backer Login submit", response, decoded); 
+          console.log("Axios response from Backer Login submit", response, decoded); 
           localStorage.setItem("token", response.data.token)
           setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)},1000)
           props.changeDisplayName.changeDisplayName(response.data)})
