@@ -44,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DeveloperLoginForm(props) {
 
-
   const classes = useStyles();
 
   const [formState, setFormState] = useState({
@@ -87,13 +86,14 @@ const submitButton = () => {
 
 const submitForm = (e) => {
     e.preventDefault();
+    props.DeveloperDisplayName.DeveloperDisplayName(formState)
     setFormState({username: "", password: ""})
     axios
         // .post("http://localhost:4900/api/entrepreneur/login", formState)
         .post("https://vr-direct.herokuapp.com/api/entrepreneur/login", formState)
         .then(response => {
           console.log("Axios response from Backer Login submit", response); 
-          localStorage.setItem("token", response.data.token)
+          localStorage.setItem("token", response.data.token);
           props.DeveloperDisplayName.DeveloperDisplayName(response.data.username)
         })
 
