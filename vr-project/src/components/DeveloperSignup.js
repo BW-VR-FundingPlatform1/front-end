@@ -7,7 +7,7 @@ const DeveloperSignup = (props) => {
     return(
         <div>
             <Spring
-        config={{ duration: 1000 }}
+        config={{ duration: 650}}
         from={{ opacity: 0}}
         to={{ opacity: 1}}
         >
@@ -15,7 +15,7 @@ const DeveloperSignup = (props) => {
            <div style={springProps}>
             <div className="developerSignup-image">
                 <div>
-                    <DeveloperSignupForm changeDisplayName={props} />
+                    <DeveloperSignupForm />
                 </div>
             </div>
             </div>

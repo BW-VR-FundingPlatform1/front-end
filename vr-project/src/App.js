@@ -9,10 +9,10 @@ import BackerLogin from './components/BackerLogin';
 import DeveloperLogin from './components/DeveloperLogin';
 import BackerSignup from './components/BackerSignup'
 import DeveloperSignup from './components/DeveloperSignup';
-import Dashboard from './components/Dashboard';
 import PrivateRoute from './utils/privateRoute';
 import BackerDashboard from './components/BackerDashboard';
 import DeveloperDashboard from './components/DeveloperDashboard';
+import PublicProjects from './components/PublicProjects';
 
 
 function App() {
@@ -23,10 +23,18 @@ function App() {
   }
   )
 
-  const changeDisplayName = person => {
+  const DeveloperDisplayName = person => {
     const newName = {
       username: person.username,
-      route: "/dashboard",
+      route: "/developer-dashboard",
+    }
+    setDisplayName(newName)
+  }
+
+  const BackerDisplayName = person => {
+    const newName = {
+      username: person.username,
+      route: "/backer-dashboard",
     }
     setDisplayName(newName)
   }
@@ -47,24 +55,28 @@ function App() {
         <HomePage />
       </Route>
 
+      <Route path="/public-projects">
+        <PublicProjects />
+      </Route>
+
       <Route path="/login">
-        <LoginPage changeDisplayName={changeDisplayName} />
+        <LoginPage />
       </Route>
 
       <Route path="/backer-login">
-        <BackerLogin changeDisplayName={changeDisplayName} />
+        <BackerLogin BackerDisplayName={BackerDisplayName} />
       </Route>
 
       <Route path="/developer-login">
-        <DeveloperLogin changeDisplayName={changeDisplayName} />
+        <DeveloperLogin DeveloperDisplayName={DeveloperDisplayName} />
       </Route>
 
       <Route path="/backer-signup">
-        <BackerSignup changeDisplayName={changeDisplayName} />
+        <BackerSignup />
       </Route>
 
       <Route path="/developer-signup">
-        <DeveloperSignup changeDisplayName={changeDisplayName} />
+        <DeveloperSignup />
       </Route>
 
       <PrivateRoute path="/developer-dashboard/:id" component={DeveloperDashboard} resetDisplayName={resetDisplayName} />

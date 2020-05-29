@@ -72,7 +72,7 @@ export default function DeveloperSignupForm(props) {
       e.persist();
     validate(e);
         setFormState({...formState, [e.target.name]: e.target.value});
-        console.log("Typing stuff", formState)
+    
     }
 
     const validate = e => {
@@ -105,9 +105,9 @@ const submitForm = (e) => {
     username: "",
     password: "",})
     axios
-        .post("http://localhost:4900/api/entrepreneur/register", formState)
-        // .post("https://vr-direct.herokuapp.com/api/entrepreneur/register", formState)
-        .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
+        // .post("http://localhost:4900/api/entrepreneur/register", formState)
+        .post("https://vr-direct.herokuapp.com/api/entrepreneur/register", formState)
+        .then(response => {console.log("Axios response from Backer Login submit", response)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }
@@ -126,8 +126,10 @@ const submitForm = (e) => {
         </Typography>
         <br />
         
-        <form className={classes.form} noValidate autoComplete="off">
-        <TextField required 
+        <form onSubmit={submitForm} className={classes.form} autoComplete="off">
+        <TextField 
+            autoFocus
+            required 
             id="FirstName" 
             name="FirstName"
             label="First Name" 
@@ -187,7 +189,7 @@ const submitForm = (e) => {
             />
             <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
       <CardActions>
-        <Button onClick={submitForm} size="small">Submit</Button>
+        <Button type="submit" size="small">Submit</Button>
       </CardActions>
     </form>
         
