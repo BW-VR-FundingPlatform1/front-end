@@ -101,15 +101,9 @@ export default function BackerSignupForm(props) {
     username: "",
     password: "",})
     axios
-<<<<<<< HEAD
-        .post("https://vr-direct.herokuapp.com/api/backer/register", formState)
-        // .post("http://localhost:4900/api/backer/register", formState)
-        .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
-=======
         // .post("https://localhost:4900/api/entrepreneur/register", formState)
         .post("http://localhost:4900//api/entrepreneur/register", formState)
         .then(response => {console.log("Axios response from Backer Login submit", response)})
->>>>>>> 27437d37d30c350f3b1abf00e149b6679da4689b
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }

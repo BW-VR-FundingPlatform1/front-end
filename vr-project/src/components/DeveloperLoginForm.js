@@ -6,10 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-<<<<<<< HEAD
 import jwt from 'jsonwebtoken';
-=======
->>>>>>> 27437d37d30c350f3b1abf00e149b6679da4689b
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
@@ -86,11 +83,7 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-<<<<<<< HEAD
     return 
-=======
-    return setTimeout(()=>{history.push("/developer-dashboard")},1000)
->>>>>>> 27437d37d30c350f3b1abf00e149b6679da4689b
 }
 
 const submitForm = (e) => {
@@ -103,12 +96,8 @@ const submitForm = (e) => {
           const decoded = jwt.decode(response.data.token)
           // console.log("Axios response from Backer Login submit", response); 
           localStorage.setItem("token", response.data.token)
-<<<<<<< HEAD
           setTimeout(()=>{history.push(`/developer-dashboard/${decoded.userId}`)},1000)
           props.changeDisplayName.changeDisplayName(response.data.username)
-=======
-          props.DeveloperDisplayName.DeveloperDisplayName(response.data.username)
->>>>>>> 27437d37d30c350f3b1abf00e149b6679da4689b
         })
 
         .catch(err => {console.log("Axios error", err)});

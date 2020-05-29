@@ -7,10 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl'
-<<<<<<< HEAD
 import jwt from 'jsonwebtoken';
-=======
->>>>>>> 27437d37d30c350f3b1abf00e149b6679da4689b
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
