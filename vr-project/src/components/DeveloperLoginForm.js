@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import jwt from 'jsonwebtoken';
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
@@ -81,7 +82,7 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-    return setTimeout(()=>{history.push("/developer-dashboard")},1000)
+    return 
 }
 
 const submitForm = (e) => {
@@ -92,9 +93,17 @@ const submitForm = (e) => {
         // .post("http://localhost:4900/api/entrepreneur/login", formState)
         .post("https://vr-direct.herokuapp.com/api/entrepreneur/login", formState)
         .then(response => {
+<<<<<<< HEAD
           console.log("Axios response from Backer Login submit", response); 
           localStorage.setItem("token", response.data.token);
           props.DeveloperDisplayName.DeveloperDisplayName(response.data.username)
+=======
+          const decoded = jwt.decode(response.data.token)
+          // console.log("Axios response from Backer Login submit", response); 
+          localStorage.setItem("token", response.data.token)
+          setTimeout(()=>{history.push(`/developer-dashboard/${decoded.userId}`)},1000)
+          props.changeDisplayName.changeDisplayName(response.data.username)
+>>>>>>> 07452b92e6ca8c474de4b37e15d6bcfe287bd42d
         })
 
         .catch(err => {console.log("Axios error", err)});
