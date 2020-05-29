@@ -84,6 +84,7 @@ const submitButton = () => {
 
 const submitForm = (e) => {
     e.preventDefault();
+    props.BackerDisplayName.BackerDisplayName(formState)
     setFormState({username: "", password: ""})
     axios
         // .post("https://localhost:4900/api/backer/login", formState)

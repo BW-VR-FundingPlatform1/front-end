@@ -57,7 +57,7 @@ export default function BackerSignupForm(props) {
     })
 
     const [errorState, setErrorState] = useState({
-      FirstName: "",
+        FirstName: "",
         LastName: "",
         email: "",
         phone: "",
@@ -102,7 +102,7 @@ export default function BackerSignupForm(props) {
     password: "",})
     axios
         // .post("https://localhost:4900/api/entrepreneur/register", formState)
-        .post("http://localhost:4900//api/entrepreneur/register", formState)
+        .post("http://localhost:4900/api/entrepreneur/register", formState)
         .then(response => {console.log("Axios response from Backer Login submit", response)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
