@@ -6,7 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import jwt from 'jsonwebtoken';
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 
@@ -84,7 +84,7 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-    return setTimeout(()=>{history.push("/dashboard")},1000)
+    return 
 }
 
 const submitForm = (e) => {
@@ -94,8 +94,10 @@ const submitForm = (e) => {
         .post("http://localhost:4900/api/entrepreneur/login", formState)
         // .post("https://vr-direct.herokuapp.com/api/entrepreneur/login", formState)
         .then(response => {
-          console.log("Axios response from Backer Login submit", response); 
+          const decoded = jwt.decode(response.data.token)
+          // console.log("Axios response from Backer Login submit", response); 
           localStorage.setItem("token", response.data.token)
+          setTimeout(()=>{history.push(`/developer-dashboard/${decoded.userId}`)},1000)
           props.changeDisplayName.changeDisplayName(response.data.username)
         })
 

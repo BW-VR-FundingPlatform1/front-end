@@ -67,15 +67,18 @@ function App() {
         <DeveloperSignup changeDisplayName={changeDisplayName} />
       </Route>
 
-      <PrivateRoute path="/dashboard" component={Dashboard} resetDisplayName={resetDisplayName} />
+      <PrivateRoute path="/developer-dashboard/:id" component={DeveloperDashboard} resetDisplayName={resetDisplayName} />
+      <PrivateRoute path="/backer-dashboard/:id" component={BackerDashboard} resetDisplayName={resetDisplayName} />
       
-      <Route path="/backer-dashboard">
+
+
+      {/* <Route path="/backer-dashboard">
         <BackerDashboard resetDisplayName={resetDisplayName} />
       </Route>
 
       <Route path="/developer-dashboard">
         <DeveloperDashboard resetDisplayName={resetDisplayName} />
-      </Route>
+      </Route> */}
 
     </div>
   );

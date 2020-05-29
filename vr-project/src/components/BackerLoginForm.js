@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl'
-
+import jwt from 'jsonwebtoken';
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 
@@ -65,7 +65,7 @@ const inputChange = (e) => {
     e.persist();
     validate(e);
     setFormState({...formState, [e.target.name]: e.target.value});
-    console.log("Typing stuff", formState)
+    
 }
 
 const validate = e => {
@@ -86,16 +86,21 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-    return history.push("/backer-dashboard")
+    return 
 }
 
 const submitForm = (e) => {
     e.preventDefault();
     setFormState({username: "", password: ""})
     axios
-        .post("https://localhost:4900/api/backer/login", formState)
+        // .post("http://localhost:4900/api/backer/login", formState)
         .post("https://vr-direct.herokuapp.com/api/backer/login", formState)
-        .then(response => {console.log("Axios response from Backer Login submit", response); props.changeDisplayName.changeDisplayName(response.data)})
+        .then(response => {
+          const decoded = jwt.decode(response.data.token)
+          // console.log("Axios response from Backer Login submit", response, decoded); 
+          localStorage.setItem("token", response.data.token)
+          setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)},1000)
+          props.changeDisplayName.changeDisplayName(response.data)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }

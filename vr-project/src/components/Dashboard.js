@@ -16,6 +16,7 @@ console.log(props)
 let history = useHistory();
 
 const signoutButton = () => {
+    localStorage.removeItem("token")
     return history.push("/");
     
 }
