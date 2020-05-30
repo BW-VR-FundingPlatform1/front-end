@@ -11,11 +11,13 @@ import jwt from 'jsonwebtoken';
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth'; 
 
 
 const formSchema = yup.object().shape({
-  username: yup.string().required("Username is a required field"),
-  password: yup.string().required("Password is a required field"),
+  name: yup.string().required("Project Name is a required field"),
+  funding: yup.string().required("Funding is a required field"),
+  image: yup.string().required("Image URL is a required field"),
 });
 
 
@@ -43,17 +45,19 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-export default function BackerLoginForm(props) {
+export default function CreateProject(props) {
   const classes = useStyles();
 
   const [formState, setFormState] = useState({
-    username: "",
-    password: "",
+    name: "",
+    funding: "$",
+    image: "",
 })
 
 const [errorState, setErrorState] = useState({
-  username: "",
-  password: "",
+  name: "",
+  funding: "",
+  image: "",
 })
 
 const inputChange = (e) => {
@@ -80,22 +84,19 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-  return 
+  return history.push("/backer-dashboard/:id")
 }
 
 const submitForm = (e) => {
     e.preventDefault();
-    props.BackerDisplayName.BackerDisplayName(formState)
-    setFormState({username: "", password: ""})
-    axios
+    setFormState({name: "", funding: "$", image: ""})
+    axiosWithAuth()
         // .post("http://localhost:4900/api/backer/login", formState)
-        .post("https://vr-direct.herokuapp.com/api/backer/login", formState)
+        .post("", formState)
         .then(response => {
-          const decoded = jwt.decode(response.data.token)
-          console.log("Axios response from Backer Login submit", response, decoded); 
-          localStorage.setItem("token", response.data.token);
-          setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)}, 1000)
-          props.changeDisplayName.changeDisplayName(response.data)})
+          console.log("Axios response from Create Project submit", response); 
+        //   setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)},1000);
+          })
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }
@@ -105,7 +106,7 @@ const submitForm = (e) => {
         <Card className={classes.root} style={{opacity: "0.9", marginLeft: "10%"}}>
            <CardContent>
               <Typography variant="h5" component="h2">
-               Welcome Back!
+               Create Your New Project
               </Typography>
               <br />
            <form onSubmit={submitForm} className={classes.form} autoComplete="off">
@@ -113,29 +114,43 @@ const submitForm = (e) => {
                  <TextField 
                  autoFocus
                  required={true} 
-                 id="username" 
-                 name="username"
-                 label="Username" 
+                 id="name" 
+                 name="name"
+                 label="Name Of Project" 
                  value={formState.name}
                  onChange={inputChange}
                  variant="filled" 
                  isRequired="true"
                  />
-                 <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.username}</Typography>
+                 <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.name}</Typography>
               </FormControl>
               <FormControl required>
                  <TextField 
-                 id="password" 
-                 name="password"
-                 label="Password" 
-                 value={formState.password}
+                 id="funding" 
+                 name="funding"
+                 label="Money Required for Funding" 
+                 value={formState.funding}
                  onChange={inputChange}
                  variant="filled" 
-                 type="password" 
+                 type="text" 
                  required={true}
                  isRequired="true"
                  />
-                 <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.password}</Typography>
+                 <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.funding}</Typography>
+               </FormControl>
+               <FormControl required>
+                 <TextField 
+                 id="image" 
+                 name="image"
+                 label="Image Address URL" 
+                 value={formState.image}
+                 onChange={inputChange}
+                 variant="filled" 
+                 type="text" 
+                 required={true}
+                 isRequired="true"
+                 />
+                 <Typography style={{color: 'red', fontSize: '10px'}}>{errorState.image}</Typography>
                </FormControl>
              <CardActions>
            <Button type="submit" size="small">Submit</Button>

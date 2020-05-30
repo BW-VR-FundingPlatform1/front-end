@@ -88,3 +88,14 @@ body {
   background-size: cover;
 
 }
+
+.createProject-image{
+  background-image: url('https://images.pexels.com/photos/2835562/pexels-photo-2835562.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  height: 92vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+}
+
+
