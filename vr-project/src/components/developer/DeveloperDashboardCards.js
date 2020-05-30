@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
+import { useParams, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -42,11 +43,13 @@ const dashboardData = [
 ]
 
 export default function DeveloperDashboardCards() {
-
+  const params = useParams();
+  const history = useHistory();
+  const id = params.id
   const [projects, setProjects] = useState([]);
   useEffect(() => {
       axiosWithAuth() 
-      .get('')
+      .get(`/api/entrepreneur/${id}/projects`)
       .then(response => {
         console.log("Public Projects Axios Get", response);
         setProjects(response.data)
@@ -54,7 +57,7 @@ export default function DeveloperDashboardCards() {
       .catch(err => {
         console.error("Server Error", err);
       });
-  }, [projects])
+  }, [])
 
 
   const classes = useStyles();
@@ -65,7 +68,43 @@ export default function DeveloperDashboardCards() {
           <div className={classes.flex}>
           <h2 style={{color: "white", marginBottom: "4%", marginLeft: "auto"}}>Your Projects</h2>
     <Grid container spacing={6} direction="row" display="flex" justify="space-between" align="center">
-          {dashboardData.map(comp => {
+    {projects.map(comp => {
+      console.log(comp)
+              return(
+ 
+             <Grid item xs>
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={comp.img}
+          title={comp.projectNames}
+        />
+        <CardContent>
+          <Typography style={{fontSize: "1.1rem"}} gutterBottom variant="h5" component="h3">
+            {comp.projectName}
+          </Typography>
+          {/* <Typography style={{fontSize: "0.8rem"}} variant="body2" color="textSecondary" component="p">
+          {comp.style}
+          </Typography> */}
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button onClick={()=>{history.push(`/developer-dashboard/project/${comp.id}`)}} size="small" color="primary">
+          Edit
+        </Button>
+        <Button size="small" color="primary">
+          {comp.fundingAmount} to go!
+        </Button>
+      </CardActions>
+    </Card>
+    </Grid>
+    )})}
+          
+          
+          
+          
+          {/* {dashboardData.map(comp => {
               return(
  
              <Grid item xs>
@@ -95,7 +134,7 @@ export default function DeveloperDashboardCards() {
       </CardActions>
     </Card>
     </Grid>
-    )})}
+    )})} */}
     </Grid>
     </div>
     </div>

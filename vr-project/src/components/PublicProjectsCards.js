@@ -81,7 +81,7 @@ export default function PublicProjectsCards() {
       .catch(err => {
         console.error("Server Error", err);
       });
-  }, [projects])
+  }, [])
 
 
 

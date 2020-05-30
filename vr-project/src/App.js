@@ -14,6 +14,7 @@ import BackerDashboard from './components/backer/BackerDashboard';
 import DeveloperDashboard from './components/developer/DeveloperDashboard';
 import PublicProjects from './components/PublicProjects';
 import CreateProject from './components/CreateProject';
+import UpdateProject from './components/UpdateForm.js'
 
 function App() {
 
@@ -87,13 +88,16 @@ function App() {
         <DeveloperSignup />
       </Route>
 
-      <PrivateRoute path="/developer-dashboard/:id" component={DeveloperDashboard} resetDisplayName={resetDisplayName} />
-      <PrivateRoute path="/backer-dashboard/:id" component={BackerDashboard} resetDisplayName={resetDisplayName} />
-      {/* <PrivateRoute path="/backer-dashboard/:id/new-project" component={CreateProject} /> */}
+      <PrivateRoute exact path="/developer-dashboard/:id" component={DeveloperDashboard} resetDisplayName={resetDisplayName} />
+      <PrivateRoute exact path="/backer-dashboard/:id" component={BackerDashboard} resetDisplayName={resetDisplayName} />
+      <PrivateRoute path="/developer-dashboard/:id/new-project" component={CreateProject} />
+      <PrivateRoute path="/developer-dashboard/project/:id" component={UpdateProject} />
 
-      <Route path="/new-project">
+
+
+      {/* <Route path="/updateproject">
         <CreateProject />
-      </Route>
+      </Route> */}
 
       
 
