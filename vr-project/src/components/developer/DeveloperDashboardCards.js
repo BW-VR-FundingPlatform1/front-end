@@ -62,6 +62,18 @@ export default function DeveloperDashboardCards() {
 
   const classes = useStyles();
 
+  const handleDelete = (userId) => {
+    axiosWithAuth()
+      .delete(`/api/entrepreneur/projects/${userId}`)
+      .then(res => {
+        console.log("user was deleted", res)
+        window.location.reload();
+      })
+      .catch(err => {
+        console.log("Unable to delete", err)
+      })
+  }
+
   return (
       <div style={{margin: "6%", marginTop: "1%"}} >
           
@@ -92,6 +104,9 @@ export default function DeveloperDashboardCards() {
       <CardActions>
         <Button onClick={()=>{history.push(`/developer-dashboard/project/${comp.id}`)}} size="small" color="primary">
           Edit
+        </Button>
+        <Button onClick={()=>{handleDelete(comp.id)}} size="small" color="primary">
+          Delete
         </Button>
         <Button size="small" color="primary">
           {comp.fundingAmount} to go!
