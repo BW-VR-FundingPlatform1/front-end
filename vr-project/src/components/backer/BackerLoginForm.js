@@ -91,10 +91,10 @@ const submitForm = (e) => {
         // .post("http://localhost:4900/api/backer/login", formState)
         .post("https://vr-direct.herokuapp.com/api/backer/login", formState)
         .then(response => {
-          const decoded = jwt.decode(response.data.token)
+          const decoded = jwt.decode(response.data.token);
           console.log("Axios response from Backer Login submit", response, decoded); 
-          localStorage.setItem("token", response.data.token)
-          setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)},1000)
+          localStorage.setItem("token", response.data.token);
+          setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)},1000);
           props.changeDisplayName.changeDisplayName(response.data)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
