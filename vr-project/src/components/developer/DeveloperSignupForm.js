@@ -106,7 +106,7 @@ const submitForm = (e) => {
     password: "",})
     axios
         // .post("http://localhost:4900/api/entrepreneur/register", formState)
-        .post("https://vr-direct.herokuapp.com/api/entrepreneur/register", formState)
+        .post("https://vr-direct1.herokuapp.com/api/entrepreneur/register", formState)
         .then(response => {console.log("Axios response from Backer Login submit", response)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()

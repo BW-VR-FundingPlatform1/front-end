@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -61,6 +61,18 @@ const [errorState, setErrorState] = useState({
   img: "",
 })
 
+useEffect(() => {
+    axiosWithAuth() 
+    .get(`/api/entrepreneur/projects/${id}`)
+    .then(response => {
+      console.log("Public Projects Axios Get", response);
+      setFormState(response.data)
+    })
+    .catch(err => {
+      console.error("Server Error", err);
+    });
+}, [])
+
 const inputChange = (e) => {
     e.persist();
     validate(e);
@@ -85,17 +97,19 @@ const validate = e => {
 let history = useHistory();
 let params = useParams();
 const id = params.id
+
+
 const submitButton = () => {
-  return history.push(`/developer-dashboard/${id}`)
+  return history.push(`/developer-dashboard/${formState.developer_id}`)
 }
 
 const submitForm = (e) => {
     e.preventDefault();
     setFormState({name: "", funding: "$", image: ""})
     
-    axios
+    axiosWithAuth()
         // .post(`http://localhost:4900/api/entrepreneur/${id}/projects`, formState)
-        .post(`https://vr-direct1.herokuapp.com/api/entrepreneur/${id}/projects`, formState)
+        .put(`/api/entrepreneur/projects/${id}`, formState)
         .then(response => {
           console.log("Axios response from Create Project submit", response); 
           submitButton()
@@ -109,7 +123,7 @@ const submitForm = (e) => {
         <Card className={classes.root} style={{opacity: "0.9", marginLeft: "10%"}}>
            <CardContent>
               <Typography variant="h5" component="h2">
-               Create Your New Project
+               Update Your Project
               </Typography>
               <br />
            <form onSubmit={submitForm} className={classes.form} autoComplete="off">
@@ -157,7 +171,7 @@ const submitForm = (e) => {
                </FormControl>
              <CardActions>
            <Button type="submit" size="small">Submit</Button>
-           <Button size="small" onClick={()=>history.push(`/developer-dashboard/${id}`)}>Cancel</Button>
+           <Button size="small" onClick={()=>history.push(`/developer-dashboard/${formState.developer_id}`)}>Cancel</Button>
           </CardActions>
         </form>
       </CardContent>

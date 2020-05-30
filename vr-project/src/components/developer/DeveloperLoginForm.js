@@ -83,8 +83,8 @@ const validate = e => {
 
 let history = useHistory();
 
-const submitButton = () => {
-  return history.push("/developer-dashboard")
+const submitButton = (token) => {
+  return history.push(`/developer-dashboard/${token}`)
 }
 
 const submitForm = (e) => {
@@ -93,17 +93,18 @@ const submitForm = (e) => {
     setFormState({username: "", password: ""})
     axios
         // .post("http://localhost:4900/api/entrepreneur/login", formState)
-        .post("https://vr-direct.herokuapp.com/api/entrepreneur/login", formState)
+        .post("https://vr-direct1.herokuapp.com/api/entrepreneur/login", formState)
         .then(response => {
           const decoded = jwt.decode(response.data.token);
           console.log("Axios response from Backer Login submit", response); 
           localStorage.setItem("token", response.data.token);
-          setTimeout(()=>{history.push(`/developer-dashboard/${decoded.userId}`)},1000);
+          // setTimeout(()=>{history.push(`/developer-dashboard/${decoded.userId}`)},1000);
           props.DeveloperDisplayName.DeveloperDisplayName(response, decoded)
+          submitButton(decoded.userId)
         })
 
         .catch(err => {console.log("Axios error", err)});
-        submitButton()
+    
 }
 
 
