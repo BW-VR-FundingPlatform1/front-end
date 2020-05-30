@@ -3,17 +3,17 @@ import './App.css';
 import { Route } from 'react-router-dom';
 
 import NavAppBar from './components/NavAppBar';
-import HomePage from './components/HomePage';
-import LoginPage from './components/LoginPage';
-import BackerLogin from './components/BackerLogin';
-import DeveloperLogin from './components/DeveloperLogin';
-import BackerSignup from './components/BackerSignup'
-import DeveloperSignup from './components/DeveloperSignup';
+import HomePage from './components/home/HomePage';
+import LoginPage from './components/login/LoginPage';
+import BackerLogin from './components/backer/BackerLogin';
+import DeveloperLogin from './components/developer/DeveloperLogin';
+import BackerSignup from './components/backer/BackerSignup'
+import DeveloperSignup from './components/developer/DeveloperSignup';
 import PrivateRoute from './utils/privateRoute';
-import BackerDashboard from './components/BackerDashboard';
-import DeveloperDashboard from './components/DeveloperDashboard';
+import BackerDashboard from './components/backer/BackerDashboard';
+import DeveloperDashboard from './components/developer/DeveloperDashboard';
 import PublicProjects from './components/PublicProjects';
-
+import CreateProject from './components/CreateProject';
 
 function App() {
 
@@ -81,6 +81,12 @@ function App() {
 
       <PrivateRoute path="/developer-dashboard/:id" component={DeveloperDashboard} resetDisplayName={resetDisplayName} />
       <PrivateRoute path="/backer-dashboard/:id" component={BackerDashboard} resetDisplayName={resetDisplayName} />
+      {/* <PrivateRoute path="/backer-dashboard/:id/new-project" component={CreateProject} /> */}
+
+      <Route path="/new-project">
+        <CreateProject />
+      </Route>
+
       
 
 

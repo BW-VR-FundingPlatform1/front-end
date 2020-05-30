@@ -3,12 +3,11 @@ import React from 'react'
 import { Spring } from 'react-spring/renderprops';
 
 import { useHistory } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 import DeveloperDashboardCards from './DeveloperDashboardCards';
-import CreateProject from './CreateProject';
 
 
 
@@ -34,7 +33,9 @@ const signoutButton = () => {
           {springProps=>(
            <div style={springProps}>
                <div className="developer-dashboard-image">
-                <CreateProject />
+            <Link to='/backer-dashboard/:id/new-project'>
+                <Button>Add Project</Button>
+            </Link>
             <Grid container display="flex" justify="flex-end">
             <Button onClick={() => {props.resetDisplayName(); signoutButton()}} style={{paddingRight: "2%", color: "white"}}>Sign Out</Button>
             </Grid>
