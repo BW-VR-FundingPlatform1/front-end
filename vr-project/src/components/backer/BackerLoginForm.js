@@ -85,17 +85,19 @@ const submitButton = () => {
 
 const submitForm = (e) => {
     e.preventDefault();
-    props.BackerDisplayName.BackerDisplayName(formState)
+    // props.BackerDisplayName.BackerDisplayName(formState)
     setFormState({username: "", password: ""})
     axios
         // .post("http://localhost:4900/api/backer/login", formState)
         .post("https://vr-direct.herokuapp.com/api/backer/login", formState)
         .then(response => {
           const decoded = jwt.decode(response.data.token);
-          console.log("Axios response from Backer Login submit", response, decoded); 
+          console.log("Axios response from Backer Login submit", response, decoded);
+          console.log("Axios response from Backer Login userID", decoded.userId);  
           localStorage.setItem("token", response.data.token);
           setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)},1000);
-          props.changeDisplayName.changeDisplayName(response.data)})
+          {props.BackerDisplayName.BackerDisplayName(response, decoded)};
+          ;})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
 }

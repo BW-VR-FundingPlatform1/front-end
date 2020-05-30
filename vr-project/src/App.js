@@ -23,21 +23,29 @@ function App() {
   }
   )
 
-  const DeveloperDisplayName = person => {
+  const DeveloperDisplayName = (person, id) => {
     const newName = {
-      username: person.username,
-      route: "/developer-dashboard",
+      username: person.data.username,
+      route: `/developer-dashboard/${id.userId}`
     }
     setDisplayName(newName)
   }
 
-  const BackerDisplayName = person => {
+  const BackerDisplayName = (person, id) => {
     const newName = {
-      username: person.username,
-      route: "/backer-dashboard",
+      username: person.data.username,
+      route: `/backer-dashboard/${id.userId}`
     }
     setDisplayName(newName)
   }
+
+  // const BackerDisplayId = person => {
+  //   const newName = {
+  //     username: displayName.username,
+  //     route: `/backer-dashboard/${person.userId}`,
+  //   }
+  //   setDisplayName(newName)
+  // }
 
   const resetDisplayName = () => {
     setDisplayName({

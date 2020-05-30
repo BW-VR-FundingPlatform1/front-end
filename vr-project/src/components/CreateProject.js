@@ -17,7 +17,7 @@ const CreateProject = (props) => {
            <div style={springProps}>
             <div className="createProject-image">
                 <div>
-                    <CreateProjectForm DeveloperDisplayName={props} />
+                    <CreateProjectForm />
                 </div>
             </div>
             </div>

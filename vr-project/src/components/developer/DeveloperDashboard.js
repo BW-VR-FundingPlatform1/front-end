@@ -33,10 +33,11 @@ const signoutButton = () => {
           {springProps=>(
            <div style={springProps}>
                <div className="developer-dashboard-image">
-            <Link to='/backer-dashboard/:id/new-project'>
-                <Button>Add Project</Button>
-            </Link>
+            
             <Grid container display="flex" justify="flex-end">
+            <Link to='/backer-dashboard/:id/new-project' style={{textDecoration: "none", color: "white", paddingRight: "2%"}}>
+                <Button style={{color: "white", backgroundColor: "black", opacity: "0.7"}}>Add Project</Button>
+            </Link>
             <Button onClick={() => {props.resetDisplayName(); signoutButton()}} style={{paddingRight: "2%", color: "white"}}>Sign Out</Button>
             </Grid>
             <DeveloperDashboardCards />

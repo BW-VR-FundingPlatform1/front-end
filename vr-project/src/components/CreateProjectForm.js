@@ -11,6 +11,7 @@ import jwt from 'jsonwebtoken';
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth'; 
 
 
 const formSchema = yup.object().shape({
@@ -82,24 +83,22 @@ const validate = e => {
 
 let history = useHistory();
 
-// const submitButton = () => {
-//   return history.push("/backer-dashboard")
-// }
+const submitButton = () => {
+  return history.push("/backer-dashboard/:id")
+}
 
 const submitForm = (e) => {
     e.preventDefault();
     setFormState({name: "", funding: "$", image: ""})
-    axios
+    axiosWithAuth()
         // .post("http://localhost:4900/api/backer/login", formState)
         .post("", formState)
         .then(response => {
-          const decoded = jwt.decode(response.data.token);
-          console.log("Axios response from Create Project submit", response, decoded); 
-          localStorage.setItem("token", response.data.token);
+          console.log("Axios response from Create Project submit", response); 
         //   setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)},1000);
           })
         .catch(err => {console.log("Axios error", err)});
-        // submitButton()
+        submitButton()
 }
 
   return (
