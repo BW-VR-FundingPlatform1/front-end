@@ -16,7 +16,7 @@ const BackerLogin = (props) => {
                   <div style={springProps}>
                      <div className="backerLogin-image">
                        <div>
-                          <BackerLoginForm BackerDisplayName={props}/>
+                          <BackerLoginForm BackerDisplayName={props} />
                        </div>
                     </div>
                   </div>

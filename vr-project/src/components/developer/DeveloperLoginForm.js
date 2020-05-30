@@ -45,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DeveloperLoginForm(props) {
 
+  console.log("Developer login props", props)
+
   const classes = useStyles();
 
   const [formState, setFormState] = useState({
@@ -87,17 +89,17 @@ const submitButton = () => {
 
 const submitForm = (e) => {
     e.preventDefault();
-    props.DeveloperDisplayName.DeveloperDisplayName(formState)
+    // props.DeveloperDisplayName.DeveloperDisplayName(formState)
     setFormState({username: "", password: ""})
     axios
         // .post("http://localhost:4900/api/entrepreneur/login", formState)
         .post("https://vr-direct.herokuapp.com/api/entrepreneur/login", formState)
         .then(response => {
-          const decoded = jwt.decode(response.data.token)
-          // console.log("Axios response from Backer Login submit", response); 
-          localStorage.setItem("token", response.data.token)
-          setTimeout(()=>{history.push(`/developer-dashboard/${decoded.userId}`)},1000)
-          props.changeDisplayName.changeDisplayName(response.data.username)
+          const decoded = jwt.decode(response.data.token);
+          console.log("Axios response from Backer Login submit", response); 
+          localStorage.setItem("token", response.data.token);
+          setTimeout(()=>{history.push(`/developer-dashboard/${decoded.userId}`)},1000);
+          props.DeveloperDisplayName.DeveloperDisplayName(response, decoded)
         })
 
         .catch(err => {console.log("Axios error", err)});
