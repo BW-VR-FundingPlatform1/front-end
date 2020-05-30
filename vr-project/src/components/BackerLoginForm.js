@@ -80,7 +80,7 @@ const validate = e => {
 let history = useHistory();
 
 const submitButton = () => {
-  return history.push("/backer-dashboard")
+  return 
 }
 
 const submitForm = (e) => {
@@ -93,8 +93,8 @@ const submitForm = (e) => {
         .then(response => {
           const decoded = jwt.decode(response.data.token)
           console.log("Axios response from Backer Login submit", response, decoded); 
-          localStorage.setItem("token", response.data.token)
-          setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)},1000)
+          localStorage.setItem("token", response.data.token);
+          setTimeout(()=>{history.push(`/backer-dashboard/${decoded.userId}`)}, 1000)
           props.changeDisplayName.changeDisplayName(response.data)})
         .catch(err => {console.log("Axios error", err)});
         submitButton()
